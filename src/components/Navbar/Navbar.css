@@ -1,0 +1,18 @@
+.navbar {
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+}
+
+.nav_logo {
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: xx-large;
+  font-weight: 600;
+}

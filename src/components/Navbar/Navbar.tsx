@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
+import './Navbar.css'
 
 export const Navbar = () => {
 	
 
 	return (
-		<nav className=' md:mx-8 font-semibold flex justify-between items-center px-6 py-4 border-b '>
-			<Link to='/' className=''>
-				<div className='text-purple-700 dark:text-purple-500 italic font-semibold text-lg'>
+		<nav className="navbar">
+			<Link to='/' className="nav_logo">
+				<div className="nav_logoTxt">
 					Quizy
 				</div>
 			</Link>

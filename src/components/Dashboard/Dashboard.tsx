@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import { useQuiz } from "../../QuizContext/QuizContext";
-// import { Header } from './Header';
+import './Dashboard.css'
+import coverpic1 from '../../Assets/coverpic1.png'
 
 export const Dashboard = () => {
   const { quizState, quizDispatch } = useQuiz();
@@ -15,24 +16,26 @@ export const Dashboard = () => {
   };
   return (
     <div>
-      {/* <Header /> */}
-      <div className="py-6 md:p-10 grid gap-14 sm:grid-cols-2 md:grid-cols-3 md:gap-22 md:mx-10">
+      <div className="cover_imageSec">
+        <img className="cover_image" src={coverpic1} />
+      </div>
+      <div className="quiz_box">
         {quizState.quiz.map((quiz) => {
           return (
-            <div className="w-full md:shadow-lg rounded-xl">
-              <div className="w-full">
-                <img src={quiz.image} alt={quiz.genre} />
+            <div className="quiz_item">
+              <div className="quiz_imgSec">
+                <img className="quiz_img" src={quiz.image} alt={quiz.topic} />
               </div>
-              <div className="text-left p-3">
-                <div className="text-lg mb-2 font-semibold">{quiz.genre}</div>
-                <div className="mb-2">{quiz.description}</div>
-                <div className="flex justify-between items-center">
-                  <div className="text-sm text-gray-400">
+              <div className="quiz_descSec">
+                <div className="quiz_topic">{quiz.topic}</div>
+                <div className="quiz_desc">{quiz.description}</div>
+                <div className="quiz_btnSec">
+                  {/* <div className="">
                     {quiz.questions.length} Questions
-                  </div>
+                  </div> */}
                   <Link to={`/quiz/${quiz.id}`} key={quiz.id}>
                     <button
-                      className="py-2 px-4 bg-purple-600 text-gray-50 text-sm font-semibold rounded-lg hover:bg-purple-700 outline-none"
+                      className="quiz_btn"
                       id={quiz.id}
                       onClick={() => takeQuiz(quiz.id)}
                     >

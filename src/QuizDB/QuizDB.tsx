@@ -16,7 +16,7 @@ export type Questions = {
 
 export type Quiz = {
   id: string;
-  genre: string;
+  topic: string;
   description: string;
   playTime: number;
   image: string;
@@ -28,7 +28,7 @@ export type QuizDatabase = Quiz[];
 export const quizdatabase: QuizDatabase = [
   {
     id: uuidv4(),
-    genre: "Friends",
+    topic: "Friends",
     description:
       "Take part in the amazing quiz and test your knowledge of the friends tv show",
     playTime: 5,
@@ -96,7 +96,7 @@ export const quizdatabase: QuizDatabase = [
   },
   {
     id: uuidv4(),
-    genre: "Silicon Valley",
+    topic: "Silicon Valley",
     description:
       "Take part in the amazing quiz and test your knowledge of silicon valley",
     playTime: 5,
@@ -164,7 +164,7 @@ export const quizdatabase: QuizDatabase = [
   },
   {
     id: uuidv4(),
-    genre: "Wildlife",
+    topic: "Breaking Bad",
     description:
       "Take part in the amazing quiz and test your knowledge of Breaking Bad",
     playTime: 5,
@@ -227,5 +227,6 @@ export const quizdatabase: QuizDatabase = [
         ]
       }
     ]
-  }
+  },
+  
 ];

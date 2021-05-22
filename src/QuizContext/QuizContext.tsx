@@ -36,9 +36,6 @@ import React, {
     currentQuiz: null
   };
   
-  // export type Props = {
-  //   children?: ReactNode;
-  // };
   
   export type ActionType =
     | { type: "LOAD_QUIZ"; payload: QuizDatabase }

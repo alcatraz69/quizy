@@ -1,7 +1,8 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router";
-import { useQuiz } from "../../QuizContext/QuizContext";
-import { Quiz } from "../../QuizDB/QuizDB";
+import { useQuiz } from "../../../QuizContext/QuizContext";
+import { Quiz } from "../../../QuizDB/QuizDB";
+import './CurrentQuiz.css'
 
 type Prop = {
   currentQuiz: Quiz;
@@ -65,6 +66,7 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
         ].options.find((option) => option.isRight)?.id
       }
     });
+    
   };
 
   const styleRightAndWrongAnswers = (
@@ -72,10 +74,10 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
     selectedButtonId: string
   ): string => {
     if (isRight && selectedButtonId === optionId) {
-      return "bg-green-500 text-gray-50 hover:bg-green-600";
+      return "right_option";
     }
     if (!isRight && selectedButtonId === optionId) {
-      return "bg-red-500 text-gray-50 hover:bg-red-600";
+      return "wrong_option";
     }
     return "";
   };
@@ -97,34 +99,34 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
     }
   };
   return (
-    <div className="max-w-full flex justify-center items-center h-full text-gray-600 dark:text-gray-50">
-      <div className="md:w-2/4 flex flex-col justify-center items-center my-auto">
-        <div className="text-lg font-semibold uppercase border-b-2 border-purple-700 my-6">{`${currentQuiz.genre} quiz`}</div>
-        <div className="flex justify-between w-full p-4 text-gray-400">
+    <div className="question_sec">
+      <div className="">
+        <div className="card_quiz_topic">{`${currentQuiz.topic} quiz`}</div>
+        <div className="score_card">
           <div>
-            <span className="font-extrabold text-3xl pr-1">
+            <span style={{fontSize:"xx-large"}}>
               {quizState.currentQuestionNumber + 1}
             </span>
-            <span className="text-xl">/{currentQuiz.questions.length}</span>
+            <span className="">/{currentQuiz.questions.length}</span>
           </div>
           <div>
-            <span className="text-md pr-2">SCORE</span>
-            <span className="font-extrabold text-3xl">{quizState.score}</span>
+            <span className="score">SCORE  </span>
+            <span style={{fontSize:"xx-large"}}> {quizState.score}</span>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center w-4/5 px-2">
-          <div className="text-lg font-semibold mb-8">
+        <div className="">
+          <div className="question">
             {currentQuiz.questions[quizState.currentQuestionNumber].question}
           </div>
-          <div className="flex flex-col w-full mb-4">
+          <div className="btn_section">
             {currentQuiz.questions[quizState.currentQuestionNumber].options.map(
               (option) => {
                 return (
                   <button
-                    className={`bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg mb-6 ${
+                    className={`option_btn  ${
                       styleRightAndWrongAnswers(option.isRight, option.id)
-                        ? styleRightAndWrongAnswers(option.isRight, option.id)
-                        : "dark:bg-gray-700"
+                        && styleRightAndWrongAnswers(option.isRight, option.id)
+                        
                     }`}
                     key={option.id}
                     onClick={() => isRightAnswer(option.isRight, option.id)}
@@ -140,14 +142,14 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
         {quizState.currentQuestionNumber ===
         currentQuiz.questions.length - 1 ? (
           <button
-            className="p-2 bg-purple-700 text-gray-50 uppercase font-semibold text-sm"
+            className="next_btn"
             onClick={viewScore}
           >
             View Score
           </button>
         ) : (
           <button
-            className="p-2 bg-purple-700 text-gray-50 uppercase font-semibold text-sm"
+            className="next_btn"
             onClick={nextQuestion}
           >
             Next Question

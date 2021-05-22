@@ -1,12 +1,18 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useQuiz } from "../../QuizContext/QuizContext";
-import { CurrentQuestion } from "./CurrentQuiz";
+import { CurrentQuestion } from "./CurrentQuestion/CurrentQuiz";
 
 export const Quiz = () => {
   const { quizState, quizDispatch } = useQuiz();
   const { quizId }:any = useParams();
   // console.log({ quizState });
+
+  const pStyle:any = {
+    margin: "100px auto",
+    textAlign: "center",
+    fontSize: "xx-large"
+  }
 
   useEffect(() => {
     const findCurrentQuiz = quizState.quiz.find((quiz) => {
@@ -21,7 +27,7 @@ export const Quiz = () => {
       quizState.currentQuiz.questions[quizState.currentQuestionNumber] ? (
         <CurrentQuestion currentQuiz={quizState.currentQuiz} />
       ) : (
-        <p>Your quiz has ended</p>
+        <p style={pStyle}>Your quiz has ended</p>
       )}
     </div>
   );
