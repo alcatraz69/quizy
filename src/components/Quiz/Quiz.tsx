@@ -19,7 +19,7 @@ export const Quiz = () => {
       return quiz.id === quizId;
     });
     quizDispatch({ type: "LOAD_CURRENT_QUIZ", payload: findCurrentQuiz });
-  }, []);
+  }, [quizDispatch,quizId,quizState.quiz]);
 
   return (
     <div>
