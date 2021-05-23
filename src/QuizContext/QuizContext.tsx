@@ -1,8 +1,6 @@
 import React, {
     createContext,
-    ReactNode,
     useContext,
-    useEffect,
     useReducer
   } from "react";
   import { Quiz, quizdatabase, QuizDatabase } from "../QuizDB/QuizDB";

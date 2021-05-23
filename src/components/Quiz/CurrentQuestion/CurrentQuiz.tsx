@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router";
+import {Link} from 'react-router-dom';
 import { useQuiz } from "../../../QuizContext/QuizContext";
 import { Quiz } from "../../../QuizDB/QuizDB";
 import './CurrentQuiz.css'
@@ -9,7 +9,6 @@ type Prop = {
 };
 
 export const CurrentQuestion = ({ currentQuiz }: Prop) => {
-  // const navigate = useNavigate();
   const { quizState, quizDispatch } = useQuiz();
   const [disableButtons, setDisableButtons] = useState<boolean>(false);
   const [optionId, setOptionId] = useState<string>("");
@@ -35,6 +34,7 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
     }
     setOptionId("");
   };
+
   const isRightAnswer = (isRight: boolean, selectedOption: string) => {
     if (isRight) {
       quizDispatch({
@@ -83,7 +83,7 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
   };
 
   const viewScore = () => {
-    // navigate(`/quiz/${currentQuiz.id}/scoreboard`, { replace: true });
+
     if (!optionId) {
       quizDispatch({
         type: "UPDATE_RESULT",
@@ -100,7 +100,7 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
   };
   return (
     <div className="question_sec">
-      <div className="">
+      
         <div className="card_quiz_topic">{`${currentQuiz.topic} quiz`}</div>
         <div className="score_card">
           <div>
@@ -141,12 +141,14 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
         </div>
         {quizState.currentQuestionNumber ===
         currentQuiz.questions.length - 1 ? (
+          <Link to={`/quiz/${currentQuiz.id}/Scoreboard`}>
           <button
             className="next_btn"
             onClick={viewScore}
           >
             View Score
           </button>
+          </Link>  
         ) : (
           <button
             className="next_btn"
@@ -155,7 +157,7 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
             Next Question
           </button>
         )}
-      </div>
+      
     </div>
   );
 };

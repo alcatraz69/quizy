@@ -17,7 +17,11 @@ export const Dashboard = () => {
   return (
     <div>
       <div className="cover_imageSec">
-        <img className="cover_image" src={coverpic1} />
+        <div className="cover_txt">
+        <p className="cover_heading">YOU THINK YOU KNOW EM ALL?</p>
+        <p>Take the quiz to test your knowledge </p>
+        </div>
+        <img className="cover_image" src={coverpic1} alt="banner_img"/>
       </div>
       <div className="quiz_box">
         {quizState.quiz.map((quiz) => {
@@ -30,9 +34,6 @@ export const Dashboard = () => {
                 <div className="quiz_topic">{quiz.topic}</div>
                 <div className="quiz_desc">{quiz.description}</div>
                 <div className="quiz_btnSec">
-                  {/* <div className="">
-                    {quiz.questions.length} Questions
-                  </div> */}
                   <Link to={`/quiz/${quiz.id}`} key={quiz.id}>
                     <button
                       className="quiz_btn"
