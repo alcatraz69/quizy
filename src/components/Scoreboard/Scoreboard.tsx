@@ -8,14 +8,10 @@ export const Scoreboard=()=>{
 
     const getRightAnswers = (resultArray: Result[]): number => {
         const rightAnswers = resultArray.filter(
-            (result) => result.correctOption === result.selectedOption,
-            
+            (result) => result.correctOption === result.selectedOption,  
         );
         console.log(rightAnswers.length);
-        
-        return rightAnswers.length;
-        
-        
+        return rightAnswers.length;  
     };
 
     return quizState.currentQuiz && (

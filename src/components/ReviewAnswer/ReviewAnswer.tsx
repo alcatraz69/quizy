@@ -8,12 +8,9 @@ import {
 
 export const ReviewAnswer = () => {
 
- 
 	const {
 		quizState: { result, currentQuiz },
 	} = useQuiz();
-
-
 
 	return (
 		<div className='review_sec'>
@@ -74,7 +71,6 @@ export const ReviewAnswer = () => {
 						</div>
 					);
 				})}
-			
 		</div>
 	);
 };

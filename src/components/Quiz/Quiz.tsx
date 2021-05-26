@@ -6,7 +6,6 @@ import { CurrentQuestion } from "./CurrentQuestion/CurrentQuiz";
 export const Quiz = () => {
   const { quizState, quizDispatch } = useQuiz();
   const { quizId }:any = useParams();
-  // console.log({ quizState });
 
   const pStyle:any = {
     margin: "100px auto",

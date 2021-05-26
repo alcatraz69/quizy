@@ -156,8 +156,7 @@ export const CurrentQuestion = ({ currentQuiz }: Prop) => {
           >
             Next Question
           </button>
-        )}
-      
+        )} 
     </div>
   );
 };

@@ -33,8 +33,6 @@
 }
 
 .btn_section {
-  /* display: flex;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
@@ -52,11 +50,6 @@
   color: black;
   font-family: "Montserrat", sans-serif;
 }
-
-/* .option_btn:hover {
-  background-color: rgb(184, 205, 206);
-  transition: 0.5s ease;
-} */
 
 .right_option {
   background-color: green;
