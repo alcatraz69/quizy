@@ -18,7 +18,7 @@ export const Scoreboard=()=>{
         <>
         <div className="scoreboard_card">
             <h3>{quizState.currentQuiz.topic} Quiz</h3>
-            <p>Good Job 👏✨</p>
+            <p>{quizState.score > 5 ? "Good Job 👏✨" : "You can do better 😐"} </p>
             <p style={{color:"red"}}>Your score is : {quizState.score}</p>
             <p style={{color:"green"}}>No of right anwers : {getRightAnswers(quizState.result.resultArray)}</p>
         </div>
