@@ -39,7 +39,6 @@ import React, {
     | { type: "LOAD_QUIZ"; payload: QuizDatabase }
     | { type: "INCREMENT_QUESTION_NUMBER"; payload?: number }
     | { type: "UPDATE_SCORE"; payload: { points: number } }
-    | { type: "INITIALIZE_QUESTION_NUMBER_AND_SCORE" }
     | { type: "UPDATE_RESULT"; payload: Result }
     | { type: "UPDATE_QUIZID"; payload: string }
     | { type: "LOAD_CURRENT_QUIZ"; payload: Quiz };
@@ -73,12 +72,6 @@ import React, {
           ...state,
           score: state.score + action.payload.points
         };
-      case "INITIALIZE_QUESTION_NUMBER_AND_SCORE":
-        return {
-          ...state,
-          currentQuestionNumber: 0,
-          score: 0
-        };
       case "UPDATE_RESULT":
         return {
           ...state,
@@ -90,7 +83,9 @@ import React, {
       case "UPDATE_QUIZID":
         return {
           ...state,
-          result: { ...state.result, quizId: action.payload, resultArray: [] }
+          result: { ...state.result, quizId: action.payload, resultArray: [] },
+          currentQuestionNumber: 0,
+          score: 0
         };
       case "LOAD_CURRENT_QUIZ":
         return { ...state, currentQuiz: action.payload };

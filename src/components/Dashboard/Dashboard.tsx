@@ -10,9 +10,6 @@ export const Dashboard = () => {
       type: "UPDATE_QUIZID",
       payload: quizId
     });
-    quizDispatch({
-      type: "INITIALIZE_QUESTION_NUMBER_AND_SCORE"
-    });
   };
   return (
     <div>
