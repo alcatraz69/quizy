@@ -1,12 +1,20 @@
 import React from 'react';
-import './App.css';
+import {Navbar} from './components/Navbar/Navbar'
+import { Dashboard } from "./components/Dashboard/Dashboard";
+import { Switch, Route } from "react-router-dom";
+import { Quiz } from "./components/Quiz/Quiz";
+import {Scoreboard} from './components/Scoreboard/Scoreboard'
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <h1>Go to Development branch</h1>
+      <Navbar/>
+      <Switch>
+        <Route exact path="/dashboard" component={Dashboard} ></Route>
+        <Route exact  path="/quiz/:quizId" component={Quiz}></Route>
+        <Route  exact  path='/quiz/:quizId/Scoreboard' component={Scoreboard}></Route>
+        <Route exact path="/" component={Dashboard}></Route>
+      </Switch>
     </div>
   );
 }
-
-export default App;

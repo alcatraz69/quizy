@@ -1,0 +1,17 @@
+.review_sec {
+  text-align: center;
+  width: 50%;
+  margin: 10px auto;
+}
+
+.review_ques {
+  margin-bottom: 25px;
+  font-size: medium;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 700px) {
+  .review_sec {
+    width: 80%;
+  }
+}
